@@ -1,0 +1,25 @@
+From 8f7003e7022d6ed65caa4c84a50b8bcb20c0def7 Mon Sep 17 00:00:00 2001
+From: Max Tottenham <mtottenh@akamai.com>
+Date: Tue, 25 Jul 2017 14:08:42 -0400
+Subject: [PATCH] fixmkefile
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index d5b3739..3762c53 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1045,7 +1045,7 @@ PHONY += archscripts
+ archscripts:
+ 
+ PHONY += __headers
+-__headers: $(version_h) scripts_basic asm-generic archheaders archscripts FORCE
++__headers: $(version_h) scripts_basic asm-generic archheaders FORCE
+ 	$(Q)$(MAKE) $(build)=scripts build_unifdef
+ 
+ PHONY += headers_install_all
+-- 
+2.11.0
+
