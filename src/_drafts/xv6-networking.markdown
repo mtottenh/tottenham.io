@@ -1,7 +1,7 @@
 ---
-layout: post
-title: "XV6 - Networking Notes"
-date:   2017-07-05 14:48:14 +0100
+layout: page
+title: "Kernel Programming (xv6) - Step 8, Networking Notes"
+order: 8
 categories: xv6 intro projects
 ---
 

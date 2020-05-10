@@ -8,7 +8,8 @@ permalink: /projects/
 {% for proj in site.data.projects %}
   {% if site.categories[proj] %}
     <h2 class="category-title">{{ proj }} </h2>
-    {% for post in site.categories[proj] %}
+    {% assign sorted_proj = site.categories[proj] | sort: "order" | reverse%}
+    {% for post in sorted_proj  %}
       <div class="article-title"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
     {% endfor %}
   {% endif %}

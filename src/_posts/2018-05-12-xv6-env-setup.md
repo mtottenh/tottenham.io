@@ -2,7 +2,8 @@
 layout: page
 title: "Kernel Programming (xv6) - Step 0, Build Environments" 
 subtitle: "Cross compiling with GCC for fun and profit!"
-categories: welcome,xv6
+order: 0
+categories: welcome xv6 projects
 ---
 
 Today we'll go through setting up the development environment for

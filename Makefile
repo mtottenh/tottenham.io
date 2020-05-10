@@ -1,4 +1,4 @@
-CC=jekyll
+CC=bundler exec jekyll
 SRCDIR=./src
 DESTDIR=./build
 TESTDIR=./test
