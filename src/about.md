@@ -5,11 +5,12 @@ permalink: /about/
 ---
 
 Hi, I'm {{ site.author.name }}, I currently work for {{ site.author.company }}
-as a {{ site.author.job }} out of their {{ site.author.location }} office. If I
-don't update this blog ever, well that's because I'm lazy. But for now expect
-the half hearted post or two about tech, BBQ, or whatever else I feel like. 
+as a {{ site.author.job }} out of their {{ site.author.location }} office. 
+I'm generally rather terrible about updating this blog, life gets in the way.
+But expect the half hearted post or two about tech, BBQ, or whatever else I
+feel like. 
 
-Check out my fun-speriments on [github](https://github.com/mtottenh)
+[--> github <--](https://github.com/mtottenh)
 
 Oh and now for the legal crap:
 The views expressed on this site are solely those of the author in his private capacity

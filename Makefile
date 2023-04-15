@@ -9,7 +9,7 @@ build:
 	$(CC) $@ --source $(SRCDIR) --destination $(DESTDIR)
 
 serve:
-	$(CC) $@ --source $(SRCDIR) --destination $(TESTDIR) --drafts
+	bundle exec $(CC) $@ --source $(SRCDIR) --destination $(TESTDIR) --drafts
 
 clean:
 	-rm -rf $(DESTDIR)
