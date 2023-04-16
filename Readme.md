@@ -1,3 +1,3 @@
 # Personal Site
 
-Jekyll build files for my personal site.
+Repo for tottenham.io, my personal blog/site.

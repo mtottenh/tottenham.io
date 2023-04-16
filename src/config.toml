@@ -1,0 +1,61 @@
+baseurl = "https://tottenham.io"
+title = "Max Tottenham"
+languageCode = "en-us"
+theme = "hello-friend-ng"
+paginate = 10
+
+[Params.Author]
+Name = "Max Tottenham"
+Company = "Akamai Technologies"
+Job = "Senior Software Engineer"
+Location = "London U.K."
+
+
+[Params]
+dateform = "Jan 2, 2006"
+dateformShort = "Jan 2"
+dateformNum = "2006-01-02"
+dateformNumTime = "2006-01-02 15:04"
+
+homeSubtitle = "Software Engineer // Consultant"
+
+description = ""
+keywords = ""
+images = [""]
+categories = []
+
+[[Params.social]]
+name = "github"
+url = "https://github.com/mtottenh"
+[[Params.social]]
+name = "email"
+url = "mailto://max@tottenham.io"
+[[Params.social]]
+name = "linkedin"
+url = "https://uk.linkedin.com/in/max-tottenham-81560486"
+
+
+
+
+[Params.Logo]
+logoText = "$ cat /dev/random"
+
+
+[taxonomies]
+category = "blog"
+tag = "tags"
+series = "series"
+
+[[menu.main]]
+identifier = "blog"
+name = "Blog"
+url = "/posts"
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/About"
+
+
+[markup.tableOfContents]
+endLevel = 5
+startLevel = 2

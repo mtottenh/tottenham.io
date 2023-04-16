@@ -1,4 +1,4 @@
-CC=jekyll
+CC=hugo
 SRCDIR=./src
 DESTDIR=./build
 TESTDIR=./test
@@ -6,10 +6,10 @@ TESTDIR=./test
 all: build
 
 build:
-	$(CC) $@ --source $(SRCDIR) --destination $(DESTDIR)
+	cd $(SRCDIR) && $(CC) --destination ../$(DESTDIR)
 
 serve:
-	bundle exec $(CC) $@ --source $(SRCDIR) --destination $(TESTDIR) --drafts
+	cd $(SRCDIR) && $(CC) $@ --theme=hello-friend-ng 
 
 clean:
 	-rm -rf $(DESTDIR)
