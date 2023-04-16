@@ -9,12 +9,11 @@ title: Kernel Programming (xv6) - Step 0, Build Environments
 Today we'll go through setting up the development environment for
 [XV6](https://pdos.csail.mit.edu/6.828/2016/xv6.html). XV6 is a small Unix
 clone developed by MIT to aid in their [6.828 Operating System
-Engineering](https://pdos.csail.mit.edu/6.828/2016/) course.  I'm going to be
-loosely following along with the course material, but we'll take some extended
+Engineering](https://pdos.csail.mit.edu/6.828/2016/) course.  I will
+loosely follow along with the course material, but we'll take some extended
 detours into topics that I find interesting.  Accompanying the MIT course
-material there is also a small book for XV6 that goes through much of the
-theory. I'd highly recommend reading it, but it's by no means required if you
-just want to follow along with this blog.
+material, there is also a small book for XV6 that goes through much of the
+theory. I'd highly recommend reading it, but it's not required if you want to follow along with this blog.
 
 
 This week I'll go through setting up a development environment for either OSX or GNU/Linux. At a minimum we will need:
@@ -24,42 +23,35 @@ This week I'll go through setting up a development environment for either OSX or
 - qemu (To test our xv6 kernel)
 - git
 
-The first thing we need to do is get a copies of gcc/binutils. For GNU/Linux, distro packages for both of these should be adequate.
+The first thing we need to do is get copies of gcc/binutils. For GNU/Linux, distro packages for both of these should be adequate.
 
 {{< toc >}}
 
 ## Linux build instructions
 
 Linux builds are very easy. You can either use your distro packages, or
-you can compile more recent versions from source. The distro packages are going
-to be by far the easiest and quickest way to get a functional system.
+compile more recent versions from their source. The distro packages are 
+the easiest and quickest way to get a functional system.
 
 ### Ubuntu
 ```bash
-    $ sudo apt-get install git binutils gcc qemu
+$ sudo apt-get install git binutils gcc qemu
 ```
 
 ### Arch
 ```bash
-    $ pacman install git binutils gcc qemu
+ $ pacman install git binutils gcc qemu
  ```   
 ### Fedora
 ```bash
-    $ yum install git binutils gcc qemu
+$ yum install git binutils gcc qemu
 ```
 ## OSX build instructions
 
-Building on OSX is a pain in the ass, In order to run XV6 we will need a
-toolchain that is capable of producing ELF executables. OSX uses a different
-binary format (Mach-O), and so the default compiler/linker will not be
-sufficient (There are also other reasons, for example OSX's libc implementation
-won't work with the linux kernel etc.). My initial attempt to build a
-cross-compiler for xv6 got pretty far, but for some reason the kernel crashed
-qemu when it tried to turn on paging in entry.S
+Building on OSX is a pain in the ass, in order to run XV6 we will need a toolchain capable of producing ELF executables. In addition, OSX uses a different binary format (Mach-O), so the default compiler/linker will not be sufficient^1.  My initial attempt to build a cross-compiler for xv6 got pretty far, but for some reason, the kernel crashed Qemu when it tried to turn on paging in entry.S.
 
-In the end the approach that worked the best was to use crosstools-ng to create
-a functional toolchain. That said it wasn't without it's trials and
-tribulations, I'm going to detail the steps I took here and hopefully it will
+Ultimately the best approach was to use Crosstools-ng to create a functional toolchain. It wasn't without trials and
+tribulation; I'm going to detail the steps I took here, hopefully, it will
 be reproducible:
 
 
@@ -253,7 +245,7 @@ $ mkdir -p /Volumes/crosstools/config
 $ cd /Volumes/crosstools/config
 $ ct-ng list-samples
 ~~~
-If `x86_64-unknown-linux-musl` is among the samples listed then you are in luck! you can go ahead and pick it:
+If `x86_64-unknown-linux-musl` is among the samples listed, then you are in luck! You can go ahead and pick it:
 ~~~bash
 $ ct-ng x86_64-unknown-linux-musl
 $ ct-ng show-tuple
@@ -296,7 +288,7 @@ $ grep 'STATIC' .config
 ~~~
 One final thing to do is to edit the resulting `.config` to ensure that the
 tools are built and installed within the filesystem image we created earlier.
-Addtionally it would be nice to run a few make jobs in parrallel to speed
+Additionally, it would be nice to run a few make jobs in parallel to speed
 things up a bit. The following should do the trick:
 
 ~~~bash
@@ -310,10 +302,10 @@ Now you are ready to fire off a build using `ct-ng build`.
 
 ## Build qemu-system
 
-The final step is in setting up our toolchain is to get a copy of qemu. Qemu is
+The final step in setting up our toolchain is to get a copy of Qemu. Qemu is
 the emulator we will run the XV6 kernel under. You could probably manage with
 installing a copy from Homebrew, but I prefer to compile my copy from source,
-I've listed the commands I've used to compile and install qemu below:
+I've listed the commands I've used to compile and install Qemu below:
 
 
 ~~~bash
@@ -450,7 +442,7 @@ Copyright (c) 2003-2016 Fabrice Bellard and the QEMU Project developers
 ## Obtaining the XV6 sources
 
 I've forked a copy of the XV6 source tree at `https://github.com/mtottenh/xv6`. If you'd
-like to follow along feel free, otherwise you can get access to the upstream
+like to follow along, feel free, otherwise you can get access to the upstream
 source
 ```bash
 # Upstream source
@@ -472,7 +464,7 @@ $ export PATH=$PATH:/Volumes/crosstools/xtools/x86_64-unknown-linux-musl/bin
 $ TOOLPREFIX=x86_64-unknown-linux-musl- make
 ~~~
 
-Next, run make qemu and you should be dropped into an xv6 shell! it will look
+Next, run `make qemu`, and you should be dropped into an xv6 shell! it will look
 something like this:
 
 ~~~bash
@@ -515,6 +507,9 @@ $
 ~~~
 
 
-Next time we are going to step through the boot process, for those who are
-interested the files we are going to be peeking at are `Makfile`, `bootmain.c`,
-and `bootasm.S`.
+Next time we are going to step through the boot process, for those who are interested, the files we are going to be peeking at are `Makfile`, `bootmain.c`, and `bootasm.S`.
+
+
+
+[^1]: There are also other reasons, for example OSX's libc implementation
+won't work with the linux kernel etc.
