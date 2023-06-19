@@ -37,6 +37,14 @@ url = "https://uk.linkedin.com/in/max-tottenham-81560486"
 
 
 
+[imaging]
+  [imaging.exif]
+    disableDate = false
+    disableLatLong = true
+    excludeFields = ''
+    includeFields = '.*'
+
+
 [Params.Logo]
 logoText = "$ cat /dev/random"
 
@@ -54,7 +62,10 @@ url = "/posts"
 identifier = "about"
 name = "About"
 url = "/About"
-
+[[menu.main]]
+identifier = "photography"
+name = "Photography"
+url  = "/galleries"
 
 [markup.tableOfContents]
 endLevel = 5

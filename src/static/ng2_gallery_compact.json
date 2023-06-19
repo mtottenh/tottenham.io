@@ -1,0 +1,18 @@
+{
+    "thumbnailWidth" : "auto",
+    "thumbnailHeight": 400,
+    "viewerToolbar":    {
+        "display":    true,
+        "align" : "center",
+        "fullWidth": true,
+        "standard":   "label",
+        "minimized" : ""
+    },
+    "viewerTheme" : "light",
+    "viewerTools":    {
+        "topLeft":   "",
+        "topRight":  "" 
+    },
+    "viewerGallery" : "none",
+    "thumbnailLabel": { "display" : false, "displayDescription": false }
+}
